@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  h1= title
+  p Welcome to Pug
+  button(type = "button", class = "btn btn-secondary", onClick = "moreClaps()") Press Me
+  div(id = "target") Clap for me
+
+    script.
+      var clap_count = 0;
+      function moreClaps(){
+        clap_count = clap_count + 2;
+        document.getElementById("target").innerHTML = 'Clap '+ clap_count +' times';
+      }
+      - var pizza= ['pizza_flavour','pizza_quantity','pizza_price']
+  a(href='/pizza') Click here to search for pizza

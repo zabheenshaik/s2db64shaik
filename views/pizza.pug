@@ -1,0 +1,34 @@
+extends layout
+
+block content
+
+  h1= title
+  -
+    let results = [
+      {
+        "pizza_flavour": "Pineapple",
+        "pizza_quantity": "10lb",
+        "pizza_cost": 50
+      },
+      {
+        "pizza_flavour": "berry",
+        "pizza_quantity": "20lb",
+        "pizza_cost": 25
+      },
+      {
+        "pizza_flavour": "Salty",
+        "pizza_quantity": "30lb",
+        "pizza_cost": 150
+      },                   
+    ]
+  div(class= "container-fluid")
+    div(class = "row")
+      each item,index in results
+        div(class= "col-sm-2" , onclick=`buy(${index})`) #{item.pizza_flavour}<br>
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.pizza_quantity}<br>
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.pizza_cost}<br>
+
+  script.
+    function buy(itemNum){
+      alert(`You purchased item ${itemNum+1}`)
+    }
