@@ -1,9 +1,15 @@
 var express = require('express');
+const pizza_controlers = require('../controllers/pizza');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('pizza', { title: 'Search Results Pizza' });
-});
+
+
+/* GET costumes */
+router.get('/', pizza_controlers.pizza_view_all_Page );
+
+// GET request for one pizza. 
+router.get('/pizza/:id', pizza_controlers.pizza_detail); 
+ 
 
 module.exports = router;
+
